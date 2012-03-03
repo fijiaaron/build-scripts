@@ -1,5 +1,7 @@
 echo "executing tests"
 
+# there is a bug in this -- see configure-with-options.sh for proper use of getopts
+
 WORKING_DIR=.
 TARGET="test"
 REPORTER="xunit"
