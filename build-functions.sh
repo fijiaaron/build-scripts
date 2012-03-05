@@ -1,7 +1,7 @@
 WORKING_DIR=.
 
 CONFIG_SOURCE_DIR="/home/ubuntu"
-CONFIG_SOURCE_FILE="test-config.js"
+CONFIG_SOURCE_FILE="config.js"
 CONFIG_DEST_DIR="test/config"
 CONFIG_DEST_FILE="override.js"
 
@@ -11,11 +11,15 @@ function print() {
 }
 
 function configure() {
-	print "checking for server configuration file"
+	print "checking for configuration file"
 
 	SOURCE_FILE=$CONFIG_SOURCE_DIR/$CONFIG_SOURCE_FILE
 	DEST_DIR=$WORKING_DIR/$CONFIG_DEST_DIR
 	DEST_FILE=$DEST_DIR/$CONFIG_DEST_FILE
+
+	print " WORKING_DIR: " $WORKING_DIR
+	print " SOURCE_FILE: " $SOURCE_FILE
+	print " DEST_FILE:" $DEST_FILE
 
 	if [ ! -f $SOURCE_FILE ]; then
 		print " no source config file found at " $SOURCE_FILE
@@ -27,6 +31,9 @@ function configure() {
 		print " copying configuration file " $SOURCE_FILE " to " $DEST_FILE
 		cp $SOURCE_FILE $DEST_FILE
 	fi
+
+	print " config file: "
+	cat $DEST_FILE
 }
 
 function build() {
