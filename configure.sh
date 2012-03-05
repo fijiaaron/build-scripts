@@ -8,7 +8,11 @@ TARGET_DIR=test/config
 TARGET_FILE=override.js
 
 # get CONFIG_SOURCE_FILE from the command line
+<<<<<<< HEAD
 if [ $1 ]; then 
+=======
+if [ $1]; then 
+>>>>>>> 4b1cfc804bef2b69c2a0e2a5f29028996d41d514
 	echo "setting CONFIG_FILE=$1"
 	CONFIG_FILE=$1
 fi
