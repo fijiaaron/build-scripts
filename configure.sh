@@ -3,17 +3,19 @@
 
 # set defaults
 WORKING_DIR="."
-CONFIG_SOURCE_FILE=/home/ubuntu/config.js
-CONFIG_TARGET_DIR=test/config
-CONFIG_TARGET_FILE=override.js
+CONFIG_FILE=/home/ubuntu/config.js
+TARGET_DIR=test/config
+TARGET_FILE=override.js
 
 # get CONFIG_SOURCE_FILE from the command line
-if [ $1]; then 
+if [ $1 ]; then 
+	echo "setting CONFIG_FILE=$1"
 	CONFIG_FILE=$1
 fi
 
 # get WORKING_DIR from the command line
 if [ $2 ]; then
+	echo "setting WORKING_DIR=$2"
 	WORKING_DIR=$2
 fi
 
@@ -24,7 +26,7 @@ echo "TARGET_DIR: " $TARGET_DIR
 echo "TARGET_FILE:" $TARGET_FILE
 
 # check to make sure the target directory exists
-if [ ! -d $WORKING_DIR/$TARGET_DIR]; then
+if [ ! -d $WORKING_DIR/$TARGET_DIR ]; then
 	echo "target directory does not exist: " $WORKING_DIR/$TARGET_DIR
 	exit 1
 fi
