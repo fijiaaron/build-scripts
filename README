@@ -1,1 +1,18 @@
-build scripts for node.js for use with bamboo or jenkins CI server
+Build scripts for running testss on node.js for use with bamboo or jenkins CI server.
+
+Typical execution:
+
+configure.sh
+build.sh
+install-dependencies.sh
+execute-tests.sh
+
+run.sh does just that in one step.
+
+configure.sh 		- copy config.js file to test/config/override.js (configurable config file)
+build.sh     		- execute `./build` if found
+install-dependencies.sh	- `npm install -d` (reads ./package.json)
+execute-tests.sh	- `make test` (configurable make target and output)
+
+
+
