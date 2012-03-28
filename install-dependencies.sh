@@ -26,4 +26,8 @@ install_dependencies()
 	fi
 }
 
+# we do this so NPM CACHE will be unique for each build
+# it means more packages need download per build, but should prevent collisions
+export HOME=$WORKING_DIR
+
 install_dependencies
