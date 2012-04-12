@@ -115,7 +115,7 @@ mkdir $TEST_RESULTS_DIR
 
 #wrap output in XML to catch errors and stdout
 echo "<testsuites>" > $TEST_RESULTS
-make -k -s $TARGET REPORTER=$REPORTER | tee -a $TEST_RESULTS
+rm -f ${WORKING_DIR}/stderr.log; make -k -s $TARGET REPORTER=$REPORTER 2>${WORKING_DIR}/stderr.log | tee -a $TEST_RESULTS
 echo "</testsuites>" >> $TEST_RESULTS
 
 if [ -f $TEST_RESULTS ]; then
@@ -127,4 +127,4 @@ fi
 
 echo "finished executing tests"
 
-
+[[ "`cat ${WORKING_DIR}/stderr.log | wc -l`" == "0" ]]
